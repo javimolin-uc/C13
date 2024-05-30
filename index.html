@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Clase 13</title>
+        <link rel="icon" type="image/png" href="favicon.png"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css"
+            integrity="sha512-V0+DPzYyLzIiMiWCg3nNdY+NyIiK9bED/T1xNBj08CaIUyK3sXRpB26OUCIzujMevxY9TRJFHQIxTwgzb0jVLg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <style>
+            :root {
+                --bs-font-sans-serif: "Urbanist", sans-serif;
+                --bs-light-rgb: 255, 125, 117;                                                   
+            }
+
+            .urbanist-<uniquifier> {
+              font-family: "Urbanist", sans-serif;
+              font-optical-sizing: auto;
+              font-weight: <1000>;
+              font-style: normal;
+            }
+
+            .poetsen-one-regular {
+              font-family: "Poetsen One", sans-serif;
+              font-weight: 400;
+              font-style: normal;
+            }
+
+            h2 {
+              font-family: "Poetsen One", sans-serif;
+              font-weight: 400;
+              font-style: normal;
+            }
+
+
+
+            .ct-series-a .ct-bar,
+            .ct-series-a .ct-line,
+            .ct-series-a .ct-point,
+            .ct-series-a .ct-slice-donut {
+                stroke: rgb(158, 1, 66);
+            }
+            .ct-series-a .ct-area,
+            .ct-series-a .ct-slice-donut-solid,
+            .ct-series-a .ct-slice-pie {
+                fill: rgb(158, 1, 66);
+            }
+            .ct-series-b .ct-bar,
+            .ct-series-b .ct-line,
+            .ct-series-b .ct-point,
+            .ct-series-b .ct-slice-donut {
+                stroke: rgb(219, 73, 74);
+            }
+            .ct-series-b .ct-area,
+            .ct-series-b .ct-slice-donut-solid,
+            .ct-series-b .ct-slice-pie {
+                fill: rgb(219, 73, 74);
+            }
+            .ct-series-c .ct-bar,
+            .ct-series-c .ct-line,
+            .ct-series-c .ct-point,
+            .ct-series-c .ct-slice-donut {
+                stroke: rgb(248, 142, 83);
+            }
+            .ct-series-c .ct-area,
+            .ct-series-c .ct-slice-donut-solid,
+            .ct-series-c .ct-slice-pie {
+                fill: rgb(248, 142, 83);
+            }
+            .ct-series-d .ct-bar,
+            .ct-series-d .ct-line,
+            .ct-series-d .ct-point,
+            .ct-series-d .ct-slice-donut {
+                stroke: rgb(254, 210, 129);
+            }
+            .ct-series-d .ct-area,
+            .ct-series-d .ct-slice-donut-solid,
+            .ct-series-d .ct-slice-pie {
+                fill: rgb(254, 210, 129);
+            }
+
+            .ct-series-e .ct-bar,
+            .ct-series-e .ct-line,
+            .ct-series-e .ct-point,
+            .ct-series-e .ct-slice-donut {
+                stroke: rgb(251, 248, 176);
+            }
+            .ct-series-e .ct-area,
+            .ct-series-e .ct-slice-donut-solid,
+            .ct-series-e .ct-slice-pie {
+                fill: rgb(251, 248, 176);
+            }
+            .ct-series-f .ct-bar,
+            .ct-series-f .ct-line,
+            .ct-series-f .ct-point,
+            .ct-series-f .ct-slice-donut {
+                stroke: rgb(213, 238, 159);
+            }
+            .ct-series-f .ct-area,
+            .ct-series-f .ct-slice-donut-solid,
+            .ct-series-f .ct-slice-pie {
+                fill: rgb(213, 238, 159);
+            }
+            .ct-series-g .ct-bar,
+            .ct-series-g .ct-line,
+            .ct-series-g .ct-point,
+            .ct-series-g .ct-slice-donut {
+                stroke: rgb(137, 207, 165);
+            }
+            .ct-series-g .ct-area,
+            .ct-series-g .ct-slice-donut-solid,
+            .ct-series-g .ct-slice-pie {
+                fill: rgb(137, 207, 165);
+            }
+            .ct-series-h .ct-bar,
+            .ct-series-h .ct-line,
+            .ct-series-h .ct-point,
+            .ct-series-h .ct-slice-donut {
+                stroke: rgb(70, 150, 179);
+            }
+            .ct-series-h .ct-area,
+            .ct-series-h .ct-slice-donut-solid,
+            .ct-series-h .ct-slice-pie {
+                fill: rgb(70, 150, 179);
+            }
+            .ct-series-i .ct-bar,
+            .ct-series-i .ct-line,
+            .ct-series-i .ct-point,
+            .ct-series-i .ct-slice-donut {
+                stroke: rgb(94, 79, 162);
+            }
+            .ct-series-i .ct-area,
+            .ct-series-i .ct-slice-donut-solid,
+            .ct-series-i .ct-slice-pie {
+                fill: rgb(94, 79, 162);
+            }
+
+            *{
+                transition: all ease 1s;
+            }
+
+            .superame{
+                filter:grayscale(1) blur(3px);
+            }
+
+        </style>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js"
+            integrity="sha512-9rxMbTkN9JcgG5euudGbdIbhFZ7KGyAuVomdQDI9qXfPply9BJh0iqA7E/moLCatH2JD4xBGHwV6ezBkCpnjRQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+    </head>
+    <body>
+
+        <header class="bg-light fixed-top">
+            <div class="container py-3">
+                <div class="row">
+                    <div class="col-10 mx-auto text-center fw-lighter">
+                        <p class="my-0 d-flex justify-content-between align-items-center"><span>María Javiera Molin Aguad</span> <span class="d-sm-none">|</span><span>Diseño UC</span></p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="icon1" viewBox="0 0 16 16">
+         <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z"/>
+    </symbol>
+    <symbol id="icon2" viewBox="0 0 16 16">
+    <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518z"/>
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+  <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11m0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12"/>
+  </symbol>
+</svg>
+
+
+        <figure class="mt-5 mx-2">
+            <img id=cambio src="https://s.studiobinder.com/wp-content/uploads/2020/07/Highest-Grossing-Movies-of-All-Time-What-Makes-a-Blockbuster-Featured.jpg" class="w-100">
+        </figure>
+
+        <main class="mt-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 pe-5">
+                        <h2>
+                            <svg width="30" height="30">
+                                <use href="#icon1" />
+                            </svg>
+                        Highest grossing movies in history
+                        </h2>
+
+                        <object data="viz.svg" type="image/svg+xml" class="w-100">
+                            <img src="alt.png"/>
+                        </object>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="row ps-5">
+                            <div class="col-12 col-sm-6 col-lg-12 py-3">
+                                <h2 class="text-center fs-5">ROI</h2>
+                                <div class="ct-chart1 ct-minor-second"></div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-12 py-3">
+                                <h2 class="text-center fs-5">Box Office</h2>
+                                <div class="ct-chart2 ct-minor-second"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="col-12">
+                        <h2 class="text-center">Comparación Promedios</h2>
+                        <div class="ct-chart3 ct-major-twelfth"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="bg-light">
+            <hr>
+                <div class="container py-1">
+                    <div class="row">
+                        <div class="col-10 mx-auto text-center ">
+                        <p> Clase 13 | 29 de Mayo 2024</p>
+                        </div>
+                    </div>
+                </div>
+        </footer>
+        <script>
+            new Chartist.Pie(
+                ".ct-chart1",
+                {
+                    labels: ["Acción", "Aventura", "Animación", "Biografía", "Crimen", "Drama", "Familia", "Horror", "Musical"],
+                    series: [13.681, 147.625, 81.77, 34.9, 42.8, 37.525, 75.5, 36.8, 66.2],
+                },
+                {
+                    donut: true,
+                    donutWidth: 60,
+                    donutSolid: true,
+                    startAngle: 270,
+                    showLabel: true,
+                }
+            );
+        </script>
+        <script>
+            new Chartist.Pie(
+                ".ct-chart2",
+                {
+                    labels: ["Acción", "Aventura", "Animación", "Biografía", "Crimen", "Drama", "Familia", "Horror", "Musical"],
+                    series: [1284.43, 754.125, 834.27, 286, 246, 879.75, 793, 441, 397],
+                },
+                {
+                    donut: true,
+                    donutWidth: 60,
+                    donutSolid: true,
+                    startAngle: 270,
+                    showLabel: true,
+                }
+            );
+        </script>
+        <script>
+            new Chartist.Bar(
+                ".ct-chart3",
+                {
+                    labels: ["Acción", "Aventura", "Animación", "Biografía", "Crimen", "Drama", "Familia", "Horror", "Musical"],
+                    series: [
+                        [13.681, 147.625, 81.77, 34.9, 42.8, 37.525, 75.5, 36.8, 66.2],
+                        [1284.43, 754.125, 834.27, 286, 246, 879.75, 793, 441, 397],
+                    ],
+                },
+                {
+                    axisX: {
+                        // On the x-axis start means top and end means bottom
+                        position: "start",
+                    },
+                    axisY: {
+                        // On the y-axis start means left and end means right
+                        position: "end",
+                    },
+                }
+            );
+        </script>
+        <script>
+            document.addEventListener("scroll", (event)=>{
+                document.querySelector("#cambia").classList.add("superame");
+            });
+            document.addEventListener("scrollend", (event) =>{
+                var y = window.scrollY;
+                if (y=10){
+                    documentquerySelector("#cambia").classList.remove("superame");
+                }})
+            
+
+        </script>
+    </body>
+</html>
